@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: TtCahuNCfix0hBXhUunmcmRu3LQzJXCBEaV41VVewXgJBmvFaWt+rNqDv0n4zVO/yjofMf6CU2A68eMMK7SXAdQc1L+Zt7RIs0MvLFiZIDybjiXL+Atk6xdRQ+CGfqIMX7F0uFizx9Z+FOVIUko3W3sl40tGc+K+eEwULZifEYefo4uA0rjaXDPtjykhVlpMkCfr2ByhxOw7OgGy93hRIzAL0d8w/oOa7Aj4fIoHcoi0QiAWdy4+tzi9ihCeDxISHtkWb09+D5kqodvjDnBjpKPFJyNDBnWumCjpFKEXRHlwiH7NhBZCuCit54Nbv79QZmb38TGbWP8V85lvgtDpeQZB5pBtMcgRFZqz7BBaD3WPH6blolwT+ZY0y5PKbDwZ5b7MKaXXLlCCgEddM4w5d4se5iPBM73ZeSE/X98e1ymP+oMvGvoIfbpD5e4A9V3dunxnD7Y0iBxRBcoGr3WH/Jd0bDSsF3/KbSeBBeXefCL4RAxvr93SEeYzv7NgZxPpO5Vw53RUBp3G4hExh+LiGvC8r9TpBs4b2PdEBJf/dYJNAAdbrlzxo4DzmpWogGLtuvWeRW3Di/qeBZHVaMVb60Lh5Lwyn6joq51IcMa8NLmUizd2w36bF2GSUMlRyc5JLXS/2LjCDMJOHnMv2b5VQ9hURrTtOM2iTHOI9y1Vvl0=
+  app: peaceful-escarpment-94637
+  on:
+    repo: MollyJeanB/blog-app-mongoose-challenge-solution
