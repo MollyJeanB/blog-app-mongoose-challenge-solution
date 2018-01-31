@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 function seedBlogData() {
   console.info("seeding blog data");
   const seedData = [];
-  for (let i = 0; i < seedData.length; i++) {
+  for (let i = 0; i < 10; i++) {
     seedData.push(generateBlogData());
   }
   return BlogPost.insertMany(seedData);
@@ -64,11 +64,11 @@ describe("Blog API resource", function() {
         .then(function(_res) {
           res = _res;
           expect(res).to.have.status(200);
-          expect(res.body.posts).to.have.length.of.at.least(1);
+          expect(res.body).to.have.length.of.at.least(1);
           return BlogPost.count();
         })
         .then(function(count) {
-          expect(res.body.posts).to.have.length.of(count);
+          expect(res.body).to.have.length(count);
         });
     });
 
@@ -83,7 +83,7 @@ describe("Blog API resource", function() {
           expect(res.body).to.be.a("array");
           expect(res.body).to.have.length.of.at.least(1);
 
-          res.body.posts.forEach(function(post) {
+          res.body.forEach(function(post) {
             expect(post).to.be.a("object");
             expect(post).to.include.keys("id", "title", "author", "content");
           });
@@ -114,6 +114,7 @@ describe("Blog API resource", function() {
           expect(res.body.title).to.equal(newBlogPost.title);
           expect(res.body.id).to.not.be.null;
           expect(res.body.content).to.equal(newBlogPost.content);
+          return BlogPost.findById(res.body.id);
         })
         .then(function(post) {
           expect(post.title).to.equal(newBlogPost.title);
